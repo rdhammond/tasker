@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"/sass/sass/styles.scss","file":"styles.css","sources":["styles.scss","_global.scss"],"sourcesContent":["@import 'global';\n","body {\n\tpadding-top: 70px;\n}\n"],"mappings":"ACAA,AAAA,IAAI,CAAC;EACJ,WAAW,EAAE,IAAK;CAClB","names":[]}

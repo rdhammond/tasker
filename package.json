@@ -1,0 +1,36 @@
+{
+  "name": "tasker",
+  "version": "1.0.0",
+  "description": "Simple task tracking program.",
+  "main": "app.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rdhammond/tasker.git"
+  },
+  "keywords": [
+    "task",
+    "list",
+    "node",
+    "express"
+  ],
+  "author": "R. Daniel Hammond",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rdhammond/tasker/issues"
+  },
+  "homepage": "https://github.com/rdhammond/tasker#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "express-csp": "^0.1.2",
+    "pug": "^2.0.0-beta11"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-sassjs": "^0.1.7",
+    "grunt-contrib-uglify": "^2.2.1"
+  }
+}
