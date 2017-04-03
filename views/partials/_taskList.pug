@@ -1,0 +1,8 @@
+ul#tasks.tasks.list-group
+	each task in tasks
+		li.list-group-item.task(data-id=task.id)
+			.checkbox
+				span.glyphicon.glyphicon-align-justify.task-handle
+				label
+					input.done(type="checkbox")
+					=task.text

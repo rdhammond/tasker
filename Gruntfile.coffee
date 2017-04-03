@@ -21,8 +21,17 @@ module.exports = (grunt) ->
 						src = src.replace '.js', '.min.js'
 						return "#{dst}/#{src}"
 				}]
+		watch:
+			sass:
+				files: ['sass/**/*.scss']
+				tasks: ['sass']
+			javascript:
+				files: ['javascript/**/*.js']
+				tasks: ['uglify']
 
 	grunt.loadNpmTasks 'grunt-contrib-clean'
 	grunt.loadNpmTasks 'grunt-contrib-sassjs'
 	grunt.loadNpmTasks 'grunt-contrib-uglify'
+	grunt.loadNpmTasks 'grunt-contrib-watch'
+
 	grunt.registerTask 'default', ['clean', 'sass', 'uglify']

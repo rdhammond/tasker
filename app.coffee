@@ -20,7 +20,13 @@ csp.extend app,
 app.use express.static('public')
 
 app.get '/', (req, res) ->
-	res.render 'home'
+	# ** TODO
+	res.render 'home',
+		tasks: [
+			{id: 1, text: 'Task 1'}
+			{id: 2, text: 'Task 2'}
+			{id: 3, text: 'Task 3'}
+		]
 
 app.listen config.port, () ->
 	console.log "Running on port #{config.port}"

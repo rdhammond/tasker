@@ -5,22 +5,8 @@ block scripts
 	script(src="js/home.min.js")
 
 block body
-	-
-		var tasks = [
-			{text: 'Task 1'},
-			{text: 'Task 2'},
-			{text: 'Task 3'}
-		];
-
 	.container
 		.row
 			.col-md-8.col-md-offset-2
 				h1 Tasks
-				ul#tasks.tasks.list-group
-					each task in tasks
-						li.list-group-item.task
-							.checkbox
-								span.glyphicon.glyphicon-align-justify.task-handle
-								label
-									input.complete(type="checkbox")
-									=task.text
+				include partials/_taskList
