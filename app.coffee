@@ -1,7 +1,10 @@
 express = require 'express'
 csp = require 'express-csp'
+Db = require './lib/database'
 homeRouter = require './lib/home-router'
 config = require './config'
+
+db = Db 'tasks.db'
 
 app = express()
 app.set 'view engine', 'pug'
@@ -19,6 +22,11 @@ csp.extend app,
 			]
 
 app.use express.static('public')
+
+app.use (req, res, next) ->
+	req.db = db
+	next()
+
 app.use '/', homeRouter
 
 app.listen config.port, () ->

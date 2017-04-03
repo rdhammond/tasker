@@ -9,9 +9,9 @@ script#task-template(type="text/html")
 				input.done(type="checkbox")
 				span(data-content="text")
 
-#tasks
-	include _taskControls
-	ul#taskList.task-list.list-group(class=tasksHidden)
+include _taskControls
+#tasks(class=tasksHidden)
+	ul#taskList.task-list.list-group
 		each task in tasks
 			li.list-group-item.task(data-id=task.id)
 				.checkbox
@@ -19,8 +19,8 @@ script#task-template(type="text/html")
 					label
 						input.done(type="checkbox")
 						span= task.text
-	include _taskControls
 #no-tasks.well.well-sm(class=noTasksHidden)
 	h3.text-center.text-muted No tasks! Add one, maybe?
+include _taskControls
 include _addTask
 include _confirmDelete

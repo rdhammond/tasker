@@ -22,7 +22,7 @@
 	}
 
 	function checkAnyTasks() {
-		if ($('#taskList').children('.task').length < 1) {
+		if ($('#taskList').find('.task').length < 1) {
 			$('#tasks').addClass('hidden');
 			$('#no-tasks').removeClass('hidden');
 		}
