@@ -1,0 +1,14 @@
+#confirm-delete-modal.modal.fade(tabindex="-1" role="dialog")
+	.modal-dialog(role="document")
+		.modal-content
+			.modal-header
+				button.close(type="button"
+					data-dismiss="modal"
+					aria-label="Close"
+				) &times;
+				h4 Are you sure?
+			.modal-body
+				p This will <em>permanently</em> remove completed tasks from the list.
+			.modal-footer
+				button#confirm-delete.btn.btn-danger.pull-left(type="button") Yes, I'm sure!
+				button.btn.btn-default(type="button" data-dismiss="modal") Never mind...

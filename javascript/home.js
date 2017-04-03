@@ -13,8 +13,18 @@
 		}
 	}
 
+	function deleteCompleted() {
+		$('#tasks')
+			.find('.done:checked')
+			.closest('.task')
+			.remove();
+
+		$('#confirm-delete-modal').modal('hide');
+	}
+
 	$(function() {
 		$('.done').change(markTask);
+		$('#confirm-delete').click(deleteCompleted);
 
 		$('#tasks').sortable({
 			handle: '.glyphicon'

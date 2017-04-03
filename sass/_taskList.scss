@@ -10,6 +10,14 @@ body {
 		z-index: 2000;
 	}
 
+	.delete-finished {
+		margin-bottom: 1em;
+
+		.glyphicon {
+			margin-right: 0.5em;
+		}
+	}
+
 	.tasks {
 		.placeholder {
 			position: relative;

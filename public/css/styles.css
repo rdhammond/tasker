@@ -17,6 +17,14 @@ body .dragged {
   z-index: 2000;
 }
 
+body .delete-finished {
+  margin-bottom: 1em;
+}
+
+body .delete-finished .glyphicon {
+  margin-right: 0.5em;
+}
+
 body .tasks .placeholder {
   position: relative;
 }

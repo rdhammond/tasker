@@ -1,8 +1,15 @@
+button#delete-finished.btn.btn-danger.delete-finished(type="button"
+	data-toggle="modal"
+	data-target="#confirm-delete-modal"
+)
+	span.glyphicon.glyphicon-trash(aria-hidden="true")
+	| Delete Finished Items
 ul#tasks.tasks.list-group
 	each task in tasks
 		li.list-group-item.task(data-id=task.id)
 			.checkbox
-				span.glyphicon.glyphicon-align-justify.task-handle
+				span.glyphicon.glyphicon-align-justify.task-handle(aria-hidden="true")
 				label
 					input.done(type="checkbox")
 					=task.text
+include _confirmDelete
