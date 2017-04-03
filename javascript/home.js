@@ -14,7 +14,7 @@
 	}
 
 	function addToList(data) {
-		$('#tasks').loadTemplate(
+		$('#taskList').loadTemplate(
 			$('#task-template'),
 			data,
 			{ append: true }
@@ -22,14 +22,12 @@
 	}
 
 	function checkAnyTasks() {
-		var $tasks = $('#tasks');
-
-		if ($tasks.children('.task').length < 1) {
-			$tasks.addClass('hidden');
+		if ($('#taskList').children('.task').length < 1) {
+			$('#tasks').addClass('hidden');
 			$('#no-tasks').removeClass('hidden');
 		}
 		else {
-			$tasks.removeClass('hidden');
+			$('#tasks').removeClass('hidden');
 			$('#no-tasks').addClass('hidden');
 		}
 	}
@@ -46,7 +44,7 @@
 	}
 
 	function deleteCompleted() {
-		$('#tasks').find('.done:checked')
+		$('#taskList').find('.done:checked')
 			.closest('.task')
 			.remove();
 
@@ -55,10 +53,10 @@
 	}
 
 	$(function() {
-		$('#tasks').on('click', '.done', markTask);
+		$('#taskList').on('click', '.done', markTask);
 		$('#confirm-add').click(addTask);
 		$('#confirm-delete').click(deleteCompleted);
-		$('#tasks').sortable({handle: '.glyphicon'});
+		$('#taskList').sortable({handle: '.glyphicon'});
 	});
 	
 })(jQuery);

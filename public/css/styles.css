@@ -25,27 +25,27 @@ body .task-controls {
   margin-bottom: 1em;
 }
 
-body .tasks .placeholder {
+body .task-list .placeholder {
   position: relative;
 }
 
-body .tasks .placeholder:before {
+body .task-list .placeholder:before {
   position: absolute;
 }
 
-body .tasks .task {
+body .task-list .task {
   cursor: pointer;
 }
 
-body .tasks .task input[type=checkbox] {
+body .task-list .task input[type=checkbox] {
   cursor: pointer;
 }
 
-body .tasks .task .task-handle {
+body .task-list .task .task-handle {
   cursor: move;
   margin-right: 1em;
 }
 
-body .tasks .task .struck {
+body .task-list .task .struck {
   text-decoration: line-through;
 }

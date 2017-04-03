@@ -1,0 +1,13 @@
+.task-controls
+	button.delete-finished.btn.btn-danger.delete-finished.pull-right(type="button"
+		data-toggle="modal"
+		data-target="#confirm-delete-modal"
+	)
+		span.glyphicon.glyphicon-trash(aria-hidden="true")
+		| Delete Finished Items
+	button.add.btn.btn-primary.add(type="button"
+		data-toggle="modal"
+		data-target="#add-task-modal"
+	)
+		span.glyphicon.glyphicon-plus(aria-hidden="true")
+		| Add Task
