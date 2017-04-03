@@ -1,15 +1,36 @@
-button#delete-finished.btn.btn-danger.delete-finished(type="button"
-	data-toggle="modal"
-	data-target="#confirm-delete-modal"
-)
-	span.glyphicon.glyphicon-trash(aria-hidden="true")
-	| Delete Finished Items
-ul#tasks.tasks.list-group
+- var tasksHidden = tasks.length > 0 ? '' : 'hidden';
+- var noTasksHidden = tasks.length > 0 ? 'hidden' : '';
+
+script#task-template(type="text/html")
+	li.list-group-item.task(data-template-bind='[{"attribute": "data-id", "value": "id"}]')
+		.checkbox
+			span.glyphicon.glyphicon-align-justify.task-handle(aria-hidden="true")
+			label
+				input.done(type="checkbox")
+				span(data-content="text")
+
+.task-controls
+	button#delete-finished.btn.btn-danger.delete-finished.pull-right(type="button"
+		data-toggle="modal"
+		data-target="#confirm-delete-modal"
+	)
+		span.glyphicon.glyphicon-trash(aria-hidden="true")
+		| Delete Finished Items
+	button#add.btn.btn-primary.add(type="button"
+		data-toggle="modal"
+		data-target="#add-task-modal"
+	)
+		span.glyphicon.glyphicon-plus(aria-hidden="true")
+		| Add Task
+ul#tasks.tasks.list-group(class=tasksHidden)
 	each task in tasks
 		li.list-group-item.task(data-id=task.id)
 			.checkbox
 				span.glyphicon.glyphicon-align-justify.task-handle(aria-hidden="true")
 				label
 					input.done(type="checkbox")
-					=task.text
+					span= task.text
+#no-tasks.well.well-sm(class=noTasksHidden)
+	h3.text-center.text-muted No tasks! Add one, maybe?
+include _addTask
 include _confirmDelete

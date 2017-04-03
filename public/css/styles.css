@@ -3,6 +3,10 @@ body {
   padding-top: 70px;
 }
 
+body button .glyphicon {
+  margin-right: 0.5em;
+}
+
 body .dragging {
   cursor: move !important;
 }
@@ -17,12 +21,8 @@ body .dragged {
   z-index: 2000;
 }
 
-body .delete-finished {
+body .task-controls {
   margin-bottom: 1em;
-}
-
-body .delete-finished .glyphicon {
-  margin-right: 0.5em;
 }
 
 body .tasks .placeholder {

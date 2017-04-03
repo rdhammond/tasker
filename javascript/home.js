@@ -13,22 +13,52 @@
 		}
 	}
 
+	function addToList(data) {
+		$('#tasks').loadTemplate(
+			$('#task-template'),
+			data,
+			{ append: true }
+		);
+	}
+
+	function checkAnyTasks() {
+		var $tasks = $('#tasks');
+
+		if ($tasks.children('.task').length < 1) {
+			$tasks.addClass('hidden');
+			$('#no-tasks').removeClass('hidden');
+		}
+		else {
+			$tasks.removeClass('hidden');
+			$('#no-tasks').addClass('hidden');
+		}
+	}
+
+	function addTask() {
+		var data = {
+			id: 12,
+			text: $('#task-description').val()
+		};
+
+		addToList(data);
+		checkAnyTasks();
+		$('#add-task-modal').modal('hide');
+	}
+
 	function deleteCompleted() {
-		$('#tasks')
-			.find('.done:checked')
+		$('#tasks').find('.done:checked')
 			.closest('.task')
 			.remove();
 
+		checkAnyTasks();
 		$('#confirm-delete-modal').modal('hide');
 	}
 
 	$(function() {
-		$('.done').change(markTask);
+		$('#tasks').on('click', '.done', markTask);
+		$('#confirm-add').click(addTask);
 		$('#confirm-delete').click(deleteCompleted);
-
-		$('#tasks').sortable({
-			handle: '.glyphicon'
-		});
+		$('#tasks').sortable({handle: '.glyphicon'});
 	});
 	
 })(jQuery);

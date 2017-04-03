@@ -1,0 +1,17 @@
+#add-task-modal.modal.fade(tabindex="-1" role="dialog")
+	.modal-dialog(role="document")
+		.modal-content
+			.modal-header
+				button.close(type="button"
+					data-dismiss="modal"
+					aria-label="Close"
+				) &times;
+				h4 Add task
+			.modal-body
+				form
+					.form-group
+						label(for="task-description") Task description
+						input#task-description.form-control(type="text" placeholder="Task description")
+			.modal-footer
+				button#confirm-add.btn.btn-primary.pull-left(type="button") Save and Add
+				button.btn.btn-default(type="button" data-dismiss="modal") Cancel
