@@ -1,5 +1,6 @@
 express = require 'express'
 csp = require 'express-csp'
+homeRouter = require './lib/home-router'
 config = require './config'
 
 app = express()
@@ -18,15 +19,7 @@ csp.extend app,
 			]
 
 app.use express.static('public')
-
-app.get '/', (req, res) ->
-	# ** TODO
-	res.render 'home',
-		tasks: [
-			{id: 1, text: 'Task 1'}
-			{id: 2, text: 'Task 2'}
-			{id: 3, text: 'Task 3'}
-		]
+app.use '/', homeRouter
 
 app.listen config.port, () ->
 	console.log "Running on port #{config.port}"
