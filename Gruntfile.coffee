@@ -9,12 +9,18 @@ module.exports = (grunt) ->
 				files:
 					'public/css/styles.css': 'sass/styles.scss'
 		uglify:
-			options:
-				sourceMap: true
-			build:
-				cwd: 'javascript'
-				src: '**/*.js'
-				dest: 'public/js'
+			dist:
+				options:
+					sourceMap: yes
+				files: [{
+					expand: yes
+					cwd: 'javascript'
+					src: '**/*.js'
+					dest: 'public/js'
+					rename: (dst, src) ->
+						src = src.replace '.js', '.min.js'
+						return "#{dst}/#{src}"
+				}]
 
 	grunt.loadNpmTasks 'grunt-contrib-clean'
 	grunt.loadNpmTasks 'grunt-contrib-sassjs'

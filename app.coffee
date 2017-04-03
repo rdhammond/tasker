@@ -13,7 +13,8 @@ csp.extend app,
 				"'self'",
 				"'unsafe-inline'",
 				'ajax.googleapis.com',
-				'maxcdn.bootstrapcdn.com'
+				'maxcdn.bootstrapcdn.com',
+				'cdnjs.cloudflare.com'
 			]
 
 app.use express.static('public')

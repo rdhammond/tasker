@@ -2,3 +2,38 @@
 body {
   padding-top: 70px;
 }
+
+body .dragging {
+  cursor: move !important;
+}
+
+body .dragging * {
+  cursor: move !important;
+}
+
+body .dragged {
+  position: absolute;
+  opacity: 0.5;
+  z-index: 2000;
+}
+
+body .tasks .placeholder {
+  position: relative;
+}
+
+body .tasks .placeholder:before {
+  position: absolute;
+}
+
+body .tasks .task {
+  cursor: pointer;
+}
+
+body .tasks .task input[type=checkbox] {
+  cursor: pointer;
+}
+
+body .tasks .task .task-handle {
+  cursor: move;
+  margin-right: 1em;
+}
