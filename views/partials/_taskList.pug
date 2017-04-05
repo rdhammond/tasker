@@ -6,22 +6,24 @@ script#task-template(type="text/html")
 		.checkbox
 			span.glyphicon.glyphicon-align-justify.task-handle(aria-hidden="true")
 			label
-				input.done(type="checkbox")
+				input.done(type="checkbox" autocomplete="off")
 				span.text(data-content="text")
 
-include _taskControls
-#tasks(class=tasksHidden)
-	ul#taskList.task-list.list-group
-		each task in tasks
-			li.list-group-item.task(data-id=task._id)
-				.checkbox
-					span.glyphicon.glyphicon-align-justify.task-handle(aria-hidden="true")
-					- var labelClass = task.done ? 'text-muted struck' : '';
-					label(class=labelClass)
-						input.done(type="checkbox" checked=task.done)
-						span.text= task.text
-#no-tasks.well.well-sm(class=noTasksHidden)
-	h3.text-center.text-muted No tasks! Add one, maybe?
-include _taskControls
+form(novalidate="true" autocomplete="off")
+	include _taskControls
+	#tasks(class=tasksHidden)
+		ul#taskList.task-list.list-group
+			each task in tasks
+				li.list-group-item.task(data-id=task._id)
+					.checkbox
+						span.glyphicon.glyphicon-align-justify.task-handle(aria-hidden="true")
+						- var labelClass = task.done ? 'text-muted struck' : '';
+						label(class=labelClass)
+							input.done(type="checkbox" checked=task.done)
+							span.text= task.text
+	#no-tasks.well.well-sm(class=noTasksHidden)
+		h3.text-center.text-muted No tasks! Add one, maybe?
+	include _taskControls
+
 include _addTask
 include _confirmDelete

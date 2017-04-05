@@ -26,6 +26,7 @@
     "express": "^4.15.2",
     "express-csp": "^0.1.2",
     "mongoose": "^4.9.3",
+    "morgan": "^1.8.1",
     "pug": "^2.0.0-beta11",
     "step": "^1.0.0"
   },

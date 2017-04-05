@@ -5,7 +5,8 @@
 		return {
 			_id: $task.data('id'),
 			text: $task.find('.text').text(),
-			done: $task.find('.done').is(':checked')
+			done: $task.find('.done').is(':checked'),
+			pos: $('#taskList .task').index($task)
 		};
 	}
 
@@ -115,15 +116,27 @@
 		$('#confirm-delete-modal').modal('hide');
 	}
 
+	function onTaskDrop($task, container, _super) {
+		_super($task, container);
+		updateTask($task);
+	}
+
 	$(function() {
 		$(document).ajaxStart(onAjaxStart)
 			.ajaxError(onAjaxError);
 
-		$('#taskList').sortable({handle: '.glyphicon'});
+		$('#taskList').sortable({
+			onDrop: onTaskDrop,
+			handle: '.glyphicon'
+		});
+
 		$('#taskList').on('change', '.done', onDoneChanged);
 		$('#add-task-modal').on('show.bs.modal', onAddModalShow);
 		$('#confirm-add').click(onConfirmAddClicked);
 		$('#confirm-delete').click(onConfirmDeleteClicked);
+		
+		// Safeguard to prevent postback
+		$('form').submit(function() { return false; });
 	});
 	
 })(jQuery);

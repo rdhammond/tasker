@@ -1,6 +1,7 @@
 mongoose = require 'mongoose'
 express = require 'express'
 csp = require 'express-csp'
+morgan = require 'morgan'
 homeRouter = require './lib/home-router'
 taskRouter = require './lib/task-router'
 config = require './config'
@@ -24,6 +25,7 @@ csp.extend app,
 			]
 
 app.use express.static 'public'
+app.use morgan 'tiny'
 app.use '/', homeRouter
 app.use '/tasks', taskRouter
 

@@ -10,8 +10,6 @@ router.post '/', json, (req, res, next) ->
 	.then (task) -> res.json task
 	.catch (err) -> next err
 
-# ** PICK UP HERE: Allow position changes
-#
 router.put '/:id', json, (req, res, next) ->
 	req.body._id = req.params.id
 

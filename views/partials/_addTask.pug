@@ -1,4 +1,4 @@
-#add-task-modal.modal.fade(tabindex="-1" role="dialog")
+form#add-task-modal.modal.fade(tabindex="-1" role="dialog")
 	.modal-dialog(role="document")
 		.modal-content
 			.modal-header
@@ -11,7 +11,10 @@
 				form
 					.form-group
 						label(for="task-description") Task description
-						input#task-description.form-control(type="text" placeholder="Task description")
+						input#task-description.form-control(type="text"
+							placeholder="Task description"
+							autocomplete="off"
+						)
 			.modal-footer
 				button#confirm-add.btn.btn-primary.pull-left(type="button") Save and Add
 				button.btn.btn-default(type="button" data-dismiss="modal") Cancel
