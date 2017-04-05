@@ -1,3 +1,4 @@
 {
-	"port": 8082
+	"port": 8082,
+	"mongo": "mongodb://localhost/tasker"
 }

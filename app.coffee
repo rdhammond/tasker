@@ -1,10 +1,12 @@
+mongoose = require 'mongoose'
 express = require 'express'
 csp = require 'express-csp'
-Db = require './lib/database'
 homeRouter = require './lib/home-router'
+taskRouter = require './lib/task-router'
 config = require './config'
 
-db = Db 'tasks.db'
+mongoose.Promise = global.Promise
+mongoose.connect config.mongo
 
 app = express()
 app.set 'view engine', 'pug'
@@ -21,13 +23,9 @@ csp.extend app,
 				'cdnjs.cloudflare.com'
 			]
 
-app.use express.static('public')
-
-app.use (req, res, next) ->
-	req.db = db
-	next()
-
+app.use express.static 'public'
 app.use '/', homeRouter
+app.use '/tasks', taskRouter
 
 app.listen config.port, () ->
 	console.log "Running on port #{config.port}"

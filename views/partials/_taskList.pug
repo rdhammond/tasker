@@ -2,23 +2,24 @@
 - var noTasksHidden = tasks.length > 0 ? 'hidden' : '';
 
 script#task-template(type="text/html")
-	li.list-group-item.task(data-template-bind='[{"attribute": "data-id", "value": "id"}]')
+	li.list-group-item.task(data-template-bind='[{"attribute": "data-id", "value": "_id"}]')
 		.checkbox
 			span.glyphicon.glyphicon-align-justify.task-handle(aria-hidden="true")
 			label
 				input.done(type="checkbox")
-				span(data-content="text")
+				span.text(data-content="text")
 
 include _taskControls
 #tasks(class=tasksHidden)
 	ul#taskList.task-list.list-group
 		each task in tasks
-			li.list-group-item.task(data-id=task.id)
+			li.list-group-item.task(data-id=task._id)
 				.checkbox
 					span.glyphicon.glyphicon-align-justify.task-handle(aria-hidden="true")
-					label
-						input.done(type="checkbox")
-						span= task.text
+					- var labelClass = task.done ? 'text-muted struck' : '';
+					label(class=labelClass)
+						input.done(type="checkbox" checked=task.done)
+						span.text= task.text
 #no-tasks.well.well-sm(class=noTasksHidden)
 	h3.text-center.text-muted No tasks! Add one, maybe?
 include _taskControls
