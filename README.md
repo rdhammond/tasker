@@ -1,2 +1,2 @@
 # tasker
-Simple task tracking program.
+Tracks tasks. That's it.
